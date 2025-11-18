@@ -9,9 +9,6 @@ export class V1Api {
     this.apiKey = apiKey;
   }
   async getModels() {
-    fetch()
+    fetch();
   }
 }
-
-
-
