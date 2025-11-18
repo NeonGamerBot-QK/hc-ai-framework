@@ -1,3 +1,6 @@
 - [ ] all normal api endpoints
 - [ ] all usertoken endpoints
 - [ ] config for user api tokens and normal api tokens
+- [ ] add tests
+- [ ] add ci 
+- [ ] publish to npm
