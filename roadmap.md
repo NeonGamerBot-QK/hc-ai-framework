@@ -1,0 +1,3 @@
+- [ ] all normal api endpoints
+- [ ] all usertoken endpoints
+- [ ] config for user api tokens and normal api tokens
