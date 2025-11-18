@@ -13,6 +13,4 @@ name:"e"
  * ^ get usage by modal table
  */
 
-export default class UserApiAboose {
-
-}
+export default class UserApiAboose {}
