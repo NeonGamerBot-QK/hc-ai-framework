@@ -5,7 +5,7 @@
  */
 
 export class V1Api {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
-    }
+  constructor(apiKey) {
+    this.apiKey = apiKey;
+  }
 }
