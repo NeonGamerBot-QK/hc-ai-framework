@@ -8,4 +8,10 @@ export class V1Api {
   constructor(apiKey) {
     this.apiKey = apiKey;
   }
+  async getModels() {
+    fetch()
+  }
 }
+
+
+
