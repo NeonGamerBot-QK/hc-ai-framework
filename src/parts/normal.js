@@ -5,10 +5,11 @@
  */
 
 export class V1Api {
-  constructor(apiKey) {
+  constructor(baseUrl, apiKey) {
     this.apiKey = apiKey;
+    this.baseUrl = baseUrl;
   }
   async getModels() {
-    fetch();
+    fetch(`${this.baseUrl}/`);
   }
 }
