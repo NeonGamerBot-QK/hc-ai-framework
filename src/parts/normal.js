@@ -6,8 +6,8 @@
 
 export class V1Api {
   /**
-   * @param {string} baseUrl 
-   * @param {string} apiKey 
+   * @param {string} baseUrl
+   * @param {string} apiKey
    */
   constructor(baseUrl, apiKey) {
     this.apiKey = apiKey;
@@ -20,8 +20,10 @@ export class V1Api {
   async getModels() {
     return await fetch(`${this.baseUrl}/proxy/v1/models`, {
       headers: {
-        "User-Agent": USER_AGENT
-      }
-    }).then(r => r.json()).then(d => d.data);
+        "User-Agent": USER_AGENT,
+      },
+    })
+      .then((r) => r.json())
+      .then((d) => d.data);
   }
 }
