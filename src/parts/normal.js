@@ -4,6 +4,8 @@
  * GET /proxy/v1/models (no auth)
  */
 
+import { USER_AGENT } from "../constants";
+
 export class V1Api {
   /**
    * @param {string} baseUrl
