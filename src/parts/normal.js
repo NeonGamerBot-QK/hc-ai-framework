@@ -33,14 +33,14 @@ export class V1Api {
       throw new Error("No api key!");
     }
     if (!data) {
-      throw new Error("I need some data!")
+      throw new Error("I need some data!");
     }
     return await fetch(`${this.baseUrl}/proxy/v1/embeddings`, {
       headers: {
         "User-Agent": USER_AGENT,
-        "Authorization": `Bearer ${this.apiKey}`
+        Authorization: `Bearer ${this.apiKey}`,
       },
-      method: "POST"
-    }).then(r => r.json().then(d => d.json()))
+      method: "POST",
+    }).then((r) => r.json().then((d) => d.json()));
   }
 }
