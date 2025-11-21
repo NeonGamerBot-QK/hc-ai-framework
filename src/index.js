@@ -13,5 +13,5 @@ export class AiApiWrapper {
 }
 
 export default AiApiWrapper;
-export * from "./parts/normal.js"
-export * from "./parts/user.js"
+export * from "./parts/normal.js";
+export * from "./parts/user.js";
