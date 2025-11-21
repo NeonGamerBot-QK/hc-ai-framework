@@ -4,7 +4,7 @@
  * GET /proxy/v1/models (no auth)
  */
 
-import { USER_AGENT } from "../constants";
+import { USER_AGENT } from "../constants.js";
 
 export class V1Api {
   /**
@@ -27,5 +27,20 @@ export class V1Api {
     })
       .then((r) => r.json())
       .then((d) => d.data);
+  }
+  async getEmbeddings(data) {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    if (!data) {
+      throw new Error("I need some data!")
+    }
+    return await fetch(`${this.baseUrl}/proxy/v1/embeddings`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        "Authorization": `Bearer ${this.apiKey}`
+      },
+      method: "POST"
+    }).then(r => r.json().then(d => d.json()))
   }
 }

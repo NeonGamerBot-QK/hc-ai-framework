@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.13.1"
+  "license": "MIT",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "jest": "^30.2.0"
+  }
 }

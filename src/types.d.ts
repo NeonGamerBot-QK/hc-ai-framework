@@ -11,7 +11,7 @@ export interface AiApiWrapperOptions {
   /**
    * The API key for authentication
    */
-  apiKey: string;
+  apiKey?: string;
 }
 
 /**
