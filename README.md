@@ -17,11 +17,11 @@ yarn add hc-ai
 Import the wrapper and initialize it with your API key.
 
 ```javascript
-import { AiApiWrapper } from 'hc-ai';
+import { AiApiWrapper } from "hc-ai";
 
 const client = new AiApiWrapper({
-  apiKey: 'sk-api-key', // Optional if only using public endpoints like getModels
-  baseUrl: 'https://ai.hackclub.com' // Optional, defaults to this URL
+  apiKey: "sk-api-key", // Optional if only using public endpoints like getModels
+  baseUrl: "https://ai.hackclub.com", // Optional, defaults to this URL
 });
 ```
 
@@ -40,11 +40,11 @@ Generate chat responses. Supports all parameters from the OpenAI Chat Completion
 
 ```javascript
 const response = await client.v1.chatCompletions({
-  model: 'gpt-4o',
+  model: "gpt-4o",
   messages: [
-    { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'Hello!' }
-  ]
+    { role: "system", content: "You are a helpful assistant." },
+    { role: "user", content: "Hello!" },
+  ],
 });
 
 console.log(response.choices[0].message.content);
@@ -56,8 +56,8 @@ Generate vector embeddings for text.
 
 ```javascript
 const embedding = await client.v1.getEmbeddings({
-  model: 'text-embedding-3-small',
-  input: 'Hack Club is a nonprofit network of high school coding clubs.'
+  model: "text-embedding-3-small",
+  input: "Hack Club is a nonprofit network of high school coding clubs.",
 });
 
 console.log(embedding.data[0].embedding);
@@ -69,11 +69,11 @@ Check text for inappropriate content.
 
 ```javascript
 const result = await client.v1.moderations({
-  input: 'Text to check'
+  input: "Text to check",
 });
 
 if (result.results[0].flagged) {
-  console.warn('Content flagged!');
+  console.warn("Content flagged!");
 }
 ```
 
@@ -92,7 +92,7 @@ Create and delete API keys programmatically.
 
 ```javascript
 // Create a new key
-const newKey = await client.v1.createKey({ name: 'My New Key' });
+const newKey = await client.v1.createKey({ name: "My New Key" });
 console.log(`Created key: ${newKey.key}`);
 
 // Delete a key
@@ -104,7 +104,7 @@ await client.v1.deleteKey(newKey.id);
 This package includes TypeScript definitions. Types are automatically inferred when using the client.
 
 ```typescript
-import { AiApiWrapper, ChatCompletionRequest } from 'hc-ai';
+import { AiApiWrapper, ChatCompletionRequest } from "hc-ai";
 
 // ...
 ```
