@@ -28,6 +28,11 @@ export class V1Api {
       .then((r) => r.json())
       .then((d) => d.data);
   }
+  /**
+   * 
+   * @param {import("../types").EmbeddingProps} data 
+   * @returns {Promise<import("../types").EmbeddingsResponse>}
+   */
   async getEmbeddings(data) {
     if (!this.apiKey) {
       throw new Error("No api key!");
@@ -39,8 +44,116 @@ export class V1Api {
       headers: {
         "User-Agent": USER_AGENT,
         Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json",
       },
       method: "POST",
-    }).then((r) => r.json().then((d) => d.json()));
+      body: JSON.stringify(data),
+    }).then((r) => r.json());
+  }
+
+  /**
+   * 
+   * @param {import("../types").ChatCompletionRequest} data 
+   * @returns {Promise<import("../types").ChatCompletionResponse>}
+   */
+  async chatCompletions(data) {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    if (!data) {
+      throw new Error("I need some data!");
+    }
+    return await fetch(`${this.baseUrl}/proxy/v1/chat/completions`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then((r) => r.json());
+  }
+
+  /**
+   * 
+   * @param {import("../types").ModerationRequest} data 
+   * @returns {Promise<import("../types").ModerationResponse>}
+   */
+  async moderations(data) {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    if (!data) {
+      throw new Error("I need some data!");
+    }
+    return await fetch(`${this.baseUrl}/proxy/v1/moderations`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then((r) => r.json());
+  }
+
+  /**
+   * 
+   * @returns {Promise<import("../types").StatsResponse>}
+   */
+  async getStats() {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    return await fetch(`${this.baseUrl}/proxy/v1/stats`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+    }).then((r) => r.json());
+  }
+
+  /**
+   * 
+   * @param {import("../types").CreateKeyRequest} data 
+   * @returns {Promise<import("../types").CreateKeyResponse>}
+   */
+  async createKey(data) {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    if (!data) {
+      throw new Error("I need some data!");
+    }
+    return await fetch(`${this.baseUrl}/api/keys`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `Bearer ${this.apiKey}`,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then((r) => r.json());
+  }
+
+  /**
+   * 
+   * @param {string} id 
+   * @returns {Promise<import("../types").DeleteKeyResponse>}
+   */
+  async deleteKey(id) {
+    if (!this.apiKey) {
+      throw new Error("No api key!");
+    }
+    if (!id) {
+      throw new Error("I need an id!");
+    }
+    return await fetch(`${this.baseUrl}/api/keys/${id}`, {
+      headers: {
+        "User-Agent": USER_AGENT,
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+      method: "DELETE",
+    }).then((r) => r.json());
   }
 }
