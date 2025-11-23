@@ -1,0 +1,25 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Or your desired Node.js version
+        cache: 'pnpm' # Cache pnpm modules for faster installs
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile # Use --frozen-lockfile for CI environments
+
+    - name: Run tests
+      run: pnpm test # Or the command defined in your package.json scripts
