@@ -186,4 +186,3 @@ export interface CreateKeyResponse {
 export interface DeleteKeyResponse {
   success: boolean;
 }
-
