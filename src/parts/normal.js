@@ -29,8 +29,8 @@ export class V1Api {
       .then((d) => d.data);
   }
   /**
-   * 
-   * @param {import("../types").EmbeddingProps} data 
+   *
+   * @param {import("../types").EmbeddingProps} data
    * @returns {Promise<import("../types").EmbeddingsResponse>}
    */
   async getEmbeddings(data) {
@@ -52,8 +52,8 @@ export class V1Api {
   }
 
   /**
-   * 
-   * @param {import("../types").ChatCompletionRequest} data 
+   *
+   * @param {import("../types").ChatCompletionRequest} data
    * @returns {Promise<import("../types").ChatCompletionResponse>}
    */
   async chatCompletions(data) {
@@ -75,8 +75,8 @@ export class V1Api {
   }
 
   /**
-   * 
-   * @param {import("../types").ModerationRequest} data 
+   *
+   * @param {import("../types").ModerationRequest} data
    * @returns {Promise<import("../types").ModerationResponse>}
    */
   async moderations(data) {
@@ -98,7 +98,7 @@ export class V1Api {
   }
 
   /**
-   * 
+   *
    * @returns {Promise<import("../types").StatsResponse>}
    */
   async getStats() {
@@ -114,8 +114,8 @@ export class V1Api {
   }
 
   /**
-   * 
-   * @param {import("../types").CreateKeyRequest} data 
+   *
+   * @param {import("../types").CreateKeyRequest} data
    * @returns {Promise<import("../types").CreateKeyResponse>}
    */
   async createKey(data) {
@@ -137,8 +137,8 @@ export class V1Api {
   }
 
   /**
-   * 
-   * @param {string} id 
+   *
+   * @param {string} id
    * @returns {Promise<import("../types").DeleteKeyResponse>}
    */
   async deleteKey(id) {
