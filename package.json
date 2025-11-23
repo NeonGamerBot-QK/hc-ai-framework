@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^30.2.0"
   }
 }
